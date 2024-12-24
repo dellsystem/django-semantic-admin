@@ -14,7 +14,10 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.template.response import SimpleTemplateResponse, TemplateResponse
 from django.utils.http import urlencode
 from django.utils.translation import ngettext
-from django_filters import FilterSet
+try:
+    from django_filters import FilterSet
+except ImportError:
+        FilterSet = None
 
 try:
     from django.utils.translation import gettext_lazy as _  # Django >= 4
